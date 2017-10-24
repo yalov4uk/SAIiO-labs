@@ -1,4 +1,3 @@
-#!/usr/bin/python2.7
 from numpy import *
 
 
@@ -12,7 +11,7 @@ def swap(a, b):
 def make_basis_graf(n, S):
     g = dict()
     for i in xrange(n):
-            g[i] = []
+        g[i] = []
 
     for i in xrange(n):
         for j in xrange(len(S)):
@@ -53,7 +52,6 @@ def solve_marks(S, u):
     return delta
 
 
-
 def dfs(v, color, p, g):
     color[v] = 1
     for to in g[v]:
@@ -83,7 +81,7 @@ def cycle(uu, n, g):
     if dfs(uu, color, p, g):
         _cycle = []
         v = cycle_end
-        while(v != cycle_st):
+        while (v != cycle_st):
             _cycle.append(v)
             v = p[v]
 
@@ -93,7 +91,7 @@ def cycle(uu, n, g):
 
 
 def matrics_network_task(n, S):
-    while(True):
+    while (True):
         g1 = make_basis_graf(n, S)
         u = solve_potensial(n, g1, S)
         delta = solve_marks(S, u)
@@ -102,7 +100,7 @@ def matrics_network_task(n, S):
         if max_delta <= 0:
             sum = 0
             for elem in S:
-                sum += elem[2]*elem[3]
+                sum += elem[2] * elem[3]
 
             print sum
             return S
@@ -118,13 +116,13 @@ def matrics_network_task(n, S):
         U.reverse()
         U.append(U[0])
         U_plus = []
-        U_minus= []
+        U_minus = []
         for i in xrange(len(U) - 1):
             for elem in S:
-                if U[i] == elem[0] and U[i+1] == elem[1]:
-                    U_plus.append((U[i], U[i+1]))
-                elif U[i] == elem[1] and U[i+1] == elem[0]:
-                    U_minus.append((U[i+1], U[i]))
+                if U[i] == elem[0] and U[i + 1] == elem[1]:
+                    U_plus.append((U[i], U[i + 1]))
+                elif U[i] == elem[1] and U[i + 1] == elem[0]:
+                    U_minus.append((U[i + 1], U[i]))
 
         if curve_0 not in U_plus:
             U_minus, U_plus = swap(U_minus, U_plus)
