@@ -102,8 +102,7 @@ def matrics_network_task(n, S):
             for elem in S:
                 sum += elem[2] * elem[3]
 
-            print sum
-            return S
+            return sum, S
 
         ind = temp_list.index(max_delta)
         curve_0 = delta[ind][0]
@@ -158,8 +157,12 @@ def matrics_network_task(n, S):
 
 
 if __name__ == "__main__":
+    '''
+    Variant 7
+    '''
     cycle_st = -1
     cycle_end = -10
+    '''from, to, c, x, basic'''
     S = [
         [0, 1, 7, 2, 1],
         [0, 2, 6, 3, 1],
@@ -176,17 +179,8 @@ if __name__ == "__main__":
         [6, 0, 2, 0, 0]
     ]
     n = 7
-    res = matrics_network_task(n, S)
-    print res
-
-"""S = [
-        [0, 1, 1, 1, 1],
-        [5, 0, -2, 0, 0],
-        [1, 5, 3, 0, 0],
-        [2, 1, 3, 3, 1],
-        [5, 2, 3, 9, 1],
-        [5, 4, 4, 0, 0],
-        [4, 2, 4, 0, 0],
-        [4, 3, 1, 5, 1],
-        [2, 3, 5, 1, 1]
-    ]"""
+    sum, res = matrics_network_task(n, S)
+    print sum
+    for arr in res:
+        if arr[4] == 1:
+            print arr
