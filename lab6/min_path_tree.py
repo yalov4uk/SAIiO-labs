@@ -2,8 +2,10 @@ import numpy as np
 
 
 def main():
-    g = load_graph('g.txt')  # task 5
-    # print g
+    '''
+    task 5
+    '''
+    g = load_graph('task5.txt')
     print min_path_tree(g, 0)
 
 
